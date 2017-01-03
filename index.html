@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>20160000000 홍길동</title>
 
     <style>
 
@@ -69,27 +69,27 @@
         }
 
         .tab-menu li.menuitem1 {
-            background-image: url(../images/newbtn.bar.1.png);
+            background-image: url(./images/newbtn.bar.1.png);
         }
 
         .tab-menu li.menuitem2{
-            background-image: url(../images/newbtn.bar.2.png);
+            background-image: url(./images/newbtn.bar.2.png);
         }
 
         .tab-menu li.menuitem3{
-            background-image: url(../images/newbtn.bar.3.png);
+            background-image: url(./images/newbtn.bar.3.png);
         }
 
         .tab-menu li.menuitem4{
-            background-image: url(../images/newbtn.bar.4.png);
+            background-image: url(./images/newbtn.bar.4.png);
         }
 
         .tab-menu li.menuitem5{
-            background-image: url(../images/newbtn.bar.5.png);
+            background-image: url(./images/newbtn.bar.5.png);
         }
 
         .tab-menu li.menuitem6{
-            background-image: url(../images/newbtn.bar.6.png);
+            background-image: url(./images/newbtn.bar.6.png);
         }
 
         #imageview{
@@ -109,32 +109,23 @@
         }
     </style>
 
-<script src="../libs/jquery-1.11.0.min.js"></script>
-<script src="../libs/jquery.easing.1.3.js"></script>
+<script src="./libs/jquery-1.11.0.min.js"></script>
+<script src="./libs/jquery.easing.1.3.js"></script>
 
 <script>
-    /*
-    -주의사항-
-    클래스 생성하기
-    변수를 프로퍼티로 만들기
-    함수를 메서드로 만들기
-    객체내부에서 프로퍼티와 메서드 사용하기
-    탭메뉴 인스턴스 생성하기
-    객체외부에서 프로퍼티와 메서드 사용하기
-    */
     function TabMenu() {
         this.$tabMenu = null;
         this.$menuItems = null;
         this.$selectMenuItem = null;
         this.$imageview = null;
-        this.urlStr = "http://www.naver.com"
+        this.urlStr = null;
 
 
         this.init = function () {
             this.$tabMenu = $("#tabMenu1");
             this.$menuItems = this.$tabMenu.find("li");
             this.$imageview = $("#imageview");
-            this.urlStr = "http://www.naver.com"
+            this.urlStr = "http://google.co.kr"
         }
 
         this.initEvent = function () {
@@ -142,16 +133,28 @@
             this.$menuItems.on("click", function () {
                 //    objThis.setSelectItem($(this));
                 if (this.id == "menuitem_1") {
-                    objThis.urlStr = "http://www.naver.com";
+                    objThis.urlStr = "http://www.google.co.kr";
 
                     objThis.$imageview.fadeOut(400, function () {
-                        objThis.$imageview.attr("src", "./naver.png");
+                        objThis.$imageview.attr("src", "./images/google.png");
                     }).fadeIn(400);
                 }
-                else {
-                    objThis.urlStr = "http://www.google.com";
+                else if(this.id == "menuitem_2"){
+                    objThis.urlStr = "http://www.naver.com";
                     objThis.$imageview.fadeOut(400, function () {
-                        objThis.$imageview.attr("src", "./safe_knu.png");
+                        objThis.$imageview.attr("src", "./images/naver.png");
+                    }).fadeIn(400);
+                }
+                else if(this.id == "menuitem_3"){
+                    objThis.urlStr = "http://www.knu.ac.kr";
+                    objThis.$imageview.fadeOut(400, function () {
+                        objThis.$imageview.attr("src", "./images/knu.png");
+                    }).fadeIn(400);
+                }
+                else{
+                    objThis.urlStr = "http://lms.knu.ac.kr";
+                    objThis.$imageview.fadeOut(400, function () {
+                        objThis.$imageview.attr("src", "./images/lms.png");
                     }).fadeIn(400);
                 }
             });
@@ -189,15 +192,13 @@
     <div class="header">
         <ul class="tab-menu" id="tabMenu1">
             <li class="menuitem1" id="menuitem_1">google</li>
-            <li class="menuitem2" id="menuitem_2">facebook</li>
-            <li class="menuitem3" id="menuitem_3">naver</li>
-            <li class="menuitem4" id="menuitem_4">twitter</li>
-            <li class="menuitem5" id="menuitem_5">airbnb</li>
-            <li class="menuitem6" id="menuitem_6">path</li>
+            <li class="menuitem2" id="menuitem_2">naver</li>
+            <li class="menuitem3" id="menuitem_3">knu</li>
+            <li class="menuitem4" id="menuitem_4">lms</li>
         </ul>
     </div>
     <div>
-        <img src="./naver.png" alt="네이버" id="imageview" />
+        <img src="./images/google.png" alt="네이버" id="imageview" />
     </div>
     <div class="footer"> 이호경 교수님 컴퓨터학개론 과제  (<strong>20160000000 홍길동</strong>)</div>
 </body>
